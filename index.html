@@ -6,6 +6,8 @@
 <meta property="og:description" content="Routine maintenance coordination for property managers with 50 to 200 units, delivered by email with a 7 AM report. $999/month for up to 200 doors; your first month, paid up front, is a 30-day pilot. Cancel anytime.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="any">
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18439089492"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-18439089492');</script>
 <style>
 :root{--b:#1d4ed8;--bd:#1e3a8a;--ink:#0f172a;--mut:#475569;--line:#e2e8f0;--bg:#f8fafc}
 *{box-sizing:border-box}body{margin:0;font:18px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink)}
@@ -92,4 +94,12 @@ footer{padding:30px 0;color:var(--mut);font-size:17px;border-top:1px solid var(-
 document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();var g=function(i){return document.getElementById(i).value.trim()};
 var body='Company: '+g('company')+'\r\nName: '+g('name')+'\r\nEmail: '+g('email')+'\r\nApprox. units: '+g('units')+'\r\nPM software: '+g('sw')+'\r\nHow requests come in: '+g('how');
 location.href='mailto:pilot@therentalsdesk.com?subject='+encodeURIComponent('Pilot fit check: '+g('company'))+'&body='+encodeURIComponent(body);});
-</script></body></html>
+</script><script>
+function gtag_report_conversion(url){var cb=function(){if(typeof url!='undefined'){window.location=url;}};
+ gtag('event','conversion',{'send_to':'AW-18439089492/B0UXCP7Tl50dENTauNhE','event_callback':cb});return false;}
+// fit-check submit: fire before the existing handler opens the mailto
+document.getElementById('f').addEventListener('submit',function(){gtag('event','conversion',{'send_to':'AW-18439089492/B0UXCP7Tl50dENTauNhE','transport_type':'beacon'});},true);
+// plain mailto links
+document.querySelectorAll('a[href^="mailto:pilot@therentalsdesk.com"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();gtag_report_conversion(a.href);});});
+</script>
+</body></html>
