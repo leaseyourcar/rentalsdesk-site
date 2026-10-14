@@ -1,7 +1,11 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Rentals Desk — Routine maintenance coordination for property managers</title>
-<meta name="description" content="Routine maintenance coordination for property managers with 50 to 200 rental units. 30-day pilot: $999.">
+<title>Rentals Desk | Routine maintenance coordination for property managers</title>
+<meta name="description" content="Routine maintenance coordination for property managers with 50 to 200 units, delivered by email with a 7 AM report. $999/month for up to 200 doors; your first month, paid up front, is a 30-day pilot. Cancel anytime.">
+<meta property="og:title" content="Rentals Desk | Routine maintenance coordination for property managers">
+<meta property="og:description" content="Routine maintenance coordination for property managers with 50 to 200 units, delivered by email with a 7 AM report. $999/month for up to 200 doors; your first month, paid up front, is a 30-day pilot. Cancel anytime.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
 <style>
 :root{--b:#1d4ed8;--bd:#1e3a8a;--ink:#0f172a;--mut:#475569;--line:#e2e8f0;--bg:#f8fafc}
 *{box-sizing:border-box}body{margin:0;font:18px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink)}
@@ -12,6 +16,7 @@ nav{padding:18px 0;font-weight:700;font-size:20px;color:var(--bd)}
 .price{display:inline-block;margin:22px 0;padding:14px 20px;background:#fff;border:2px solid var(--b);border-radius:12px;font-weight:700;font-size:20px}
 .btn{display:inline-block;background:var(--b);color:#fff;text-decoration:none;font-weight:700;padding:15px 26px;border-radius:10px;border:0;font-size:18px;cursor:pointer}.btn:hover{background:var(--bd)}
 small,.small{display:block;color:var(--mut);font-size:17px;margin-top:14px}
+form small a{display:inline-block;padding:12px 0}
 ul.ben{list-style:none;padding:0;display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}ul.ben li{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px}
 .report{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 8px 30px rgba(15,23,42,.08);overflow:hidden}
 .rh{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:16px 20px;background:var(--bd);color:#fff;font-weight:700}.tag{background:#fde68a;color:#78350f;border-radius:999px;padding:2px 12px;font-size:15px}
@@ -32,10 +37,10 @@ footer{padding:30px 0;color:var(--mut);font-size:17px;border-top:1px solid var(-
 <small>Email-based. Routine requests only. Approvals, payments, and emergencies stay with you.</small>
 </div></section>
 <section><div class="w"><h2>Stop spending your mornings chasing vendors</h2><ul class="ben">
-<li><strong>Requests don't sit.</strong> Every routine request gets a reply within one business hour.</li>
+<li><strong>Requests don't sit.</strong> Routine requests get a reply within one business hour. We back that with the guarantee below.</li>
 <li><strong>Vendors get booked.</strong> We follow up until the visit is confirmed or your team needs to step in.</li>
 <li><strong>Owners answer.</strong> We chase approval requests so jobs don't stall waiting on a yes.</li>
-<li><strong>Tenants know where things stand.</strong> They get status updates in writing, so they don't keep calling your office.</li>
+<li><strong>Tenants know where things stand.</strong> They get status updates in writing, so they have fewer reasons to call your office.</li>
 <li><strong>You start the day knowing what needs you.</strong> You get one short report at 7 AM.</li></ul></div></section>
 <section class="alt"><div class="w"><h2>Your 7 AM Morning Maintenance Brief</h2>
 <p class="note">Example report. These addresses and jobs are made up.</p>
@@ -55,12 +60,12 @@ footer{padding:30px 0;color:var(--mut);font-size:17px;border-top:1px solid var(-
 <p><strong>How you pay:</strong> after we confirm your properties are a fit, we reply with a secure Stripe payment link. You pay your first month, $999, up front for the 30-day pilot. After that it's $999/month, billed monthly, and you can cancel anytime.</p></div></section>
 <section class="alt"><div class="w"><h2>How we keep you in control</h2><ul>
 <li>You approve anything over your dollar limit.</li><li>We never touch anything financial or legal.</li>
-<li>Every action is logged, checked every business day, and shown in your daily report. Anything unusual comes to you.</li>
+<li>Every action is logged and shown in your daily report. Anything unusual comes to you.</li>
 <li>We only use the inbox and spreadsheet you give us access to.</li><li>You can revoke our access at any time.</li>
 <li>There's no phone line and no after-hours coverage. Keep your emergency line as it is.</li></ul>
 <p><strong>Who runs this:</strong> Rentals Desk is a new service run by Andrew Keery. We don't have reviews to show you yet, which is why the pilot comes with the guarantee below.</p></div></section>
 <section><div class="w"><h2>Our guarantee</h2>
-<p>If we miss our one-business-hour response window on more than 10% of routine requests in a month, or we miss a follow-up and don't fix it within one business day of you flagging it, we'll refund your $999 pilot payment in full.</p>
+<p>If we miss our one-business-hour response window on more than 10% of routine requests in a month, or we miss a follow-up and don't fix it within one business day of you flagging it, we'll refund your first month's $999 payment (the 30-day pilot) in full.</p>
 <p>Business hours are Monday to Friday, 8 AM to 6 PM in your local time, holidays excluded. We guarantee our coordination, not vendor arrival times.</p></div></section>
 <section class="alt" id="qualify"><div class="w"><h2>See if your properties qualify</h2>
 <p>Tell us a little about your portfolio. We'll reply by email within one business day. <em>(The form is sent to pilot@therentalsdesk.com.)</em></p>
@@ -70,10 +75,10 @@ footer{padding:30px 0;color:var(--mut);font-size:17px;border-top:1px solid var(-
 <label for="email">Email</label><input id="email" type="email" required>
 <label for="units">Approx. number of units</label><input id="units" inputmode="numeric" required>
 <label for="sw">Property management software</label><select id="sw" required><option value="">Choose one</option><option>AppFolio</option><option>Buildium</option><option>Rent Manager</option><option>Other</option><option>None</option></select>
-<label for="how">How do maintenance requests reach you today?</label><textarea id="how" required></textarea>
+<label for="how">How do maintenance requests reach you today?</label><textarea id="how" maxlength="1500" required></textarea>
 <p><button class="btn" type="submit">See if your properties qualify</button></p>
+<small>Or email <a href="mailto:pilot@therentalsdesk.com">pilot@therentalsdesk.com</a>.</small>
 <small>Sending this doesn't sign you up for anything or charge you.</small>
-<small>Or email <a href="mailto:pilot@therentalsdesk.com">pilot@therentalsdesk.com</a></small>
 </form></div></section>
 <section><div class="w"><h2>FAQ</h2><ul>
 <li><strong>Do you replace my software?</strong> No. We work alongside your current software and vendors.</li>
@@ -85,6 +90,6 @@ footer{padding:30px 0;color:var(--mut);font-size:17px;border-top:1px solid var(-
 <footer><div class="w">Andrew Keery · Rentals Desk · PO Box 116, Danville Court, Danville, CA 94526</div></footer>
 <script>
 document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();var g=function(i){return document.getElementById(i).value.trim()};
-var body='Company: '+g('company')+'\nName: '+g('name')+'\nEmail: '+g('email')+'\nApprox. units: '+g('units')+'\nPM software: '+g('sw')+'\nHow requests come in: '+g('how');
+var body='Company: '+g('company')+'\r\nName: '+g('name')+'\r\nEmail: '+g('email')+'\r\nApprox. units: '+g('units')+'\r\nPM software: '+g('sw')+'\r\nHow requests come in: '+g('how');
 location.href='mailto:pilot@therentalsdesk.com?subject='+encodeURIComponent('Pilot fit check: '+g('company'))+'&body='+encodeURIComponent(body);});
 </script></body></html>
