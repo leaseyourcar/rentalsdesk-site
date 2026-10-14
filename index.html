@@ -95,11 +95,9 @@ document.getElementById('f').addEventListener('submit',function(e){e.preventDefa
 var body='Company: '+g('company')+'\r\nName: '+g('name')+'\r\nEmail: '+g('email')+'\r\nApprox. units: '+g('units')+'\r\nPM software: '+g('sw')+'\r\nHow requests come in: '+g('how');
 location.href='mailto:pilot@therentalsdesk.com?subject='+encodeURIComponent('Pilot fit check: '+g('company'))+'&body='+encodeURIComponent(body);});
 </script><script>
-function gtag_report_conversion(url){var cb=function(){if(typeof url!='undefined'){window.location=url;}};
- gtag('event','conversion',{'send_to':'AW-18439089492/B0UXCP7Tl50dENTauNhE','event_callback':cb});return false;}
 // fit-check submit: fire before the existing handler opens the mailto
-document.getElementById('f').addEventListener('submit',function(){gtag('event','conversion',{'send_to':'AW-18439089492/B0UXCP7Tl50dENTauNhE','transport_type':'beacon'});},true);
-// plain mailto links
-document.querySelectorAll('a[href^="mailto:pilot@therentalsdesk.com"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();gtag_report_conversion(a.href);});});
+document.getElementById('f').addEventListener('submit',function(){try{gtag('event','conversion',{'send_to':'AW-18439089492/B0UXCP7Tl50dENTauNhE','transport_type':'beacon'});}catch(e){}},true);
+// plain mailto links: do not cancel the click; browser opens mailto normally
+document.querySelectorAll('a[href^="mailto:pilot@therentalsdesk.com"]').forEach(function(a){a.addEventListener('click',function(){try{gtag('event','conversion',{'send_to':'AW-18439089492/B0UXCP7Tl50dENTauNhE','transport_type':'beacon'});}catch(e){}});});
 </script>
 </body></html>
