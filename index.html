@@ -1,49 +1,90 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Rentals Desk: routine maintenance coordination for small property management teams</title>
-<meta name="description" content="Rentals Desk coordinates routine, non-emergency maintenance for small property management teams. $999/mo flat for up to 200 doors.">
+<title>Rentals Desk — Routine maintenance coordination for property managers</title>
+<meta name="description" content="Routine maintenance coordination for property managers with 50 to 200 rental units. 30-day pilot: $999.">
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1d2733;line-height:1.6;background:#fff}
-.w{max-width:880px;margin:0 auto;padding:0 22px}header{padding:18px 0;border-bottom:1px solid #e6eaef}.logo{font-weight:800;font-size:20px;color:#1f4e79}
-.hero{background:#f3f7fb;padding:56px 0 48px}h1{font-size:clamp(28px,4.6vw,42px);line-height:1.2;margin:0 0 16px}.sub{font-size:19px;color:#3b4a5a;margin:0 0 26px}
-.btn{display:inline-block;background:#1f4e79;color:#fff;text-decoration:none;padding:14px 24px;border-radius:8px;font-weight:700}.btn:hover{background:#163a5b}
-section{padding:40px 0;border-bottom:1px solid #eef1f4}h2{font-size:24px;margin:0 0 16px}ul{padding-left:20px}li{margin:8px 0}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.card{border:1px solid #e1e6ec;border-radius:10px;padding:20px}.note{background:#fff8e6;border:1px solid #f0dfa8;border-radius:10px;padding:16px 18px}
-.price{font-size:40px;font-weight:800;color:#1f4e79}dt{font-weight:700;margin-top:14px}dd{margin:4px 0 0}footer{padding:28px 0;color:#5c6b7a;font-size:14px}
-@media(max-width:640px){.grid{grid-template-columns:1fr}.hero{padding:36px 0}.btn{display:block;text-align:center}}
+:root{--b:#1d4ed8;--bd:#1e3a8a;--ink:#0f172a;--mut:#475569;--line:#e2e8f0;--bg:#f8fafc}
+*{box-sizing:border-box}body{margin:0;font:18px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink)}
+.w{max-width:1040px;margin:0 auto;padding:0 22px}section{padding:64px 0;border-top:1px solid var(--line)}section.alt{background:var(--bg)}
+h1{font-size:clamp(34px,5.5vw,54px);line-height:1.1;margin:0 0 20px;letter-spacing:-.02em}h2{font-size:clamp(26px,3.6vw,34px);line-height:1.2;margin:0 0 22px}
+nav{padding:18px 0;font-weight:700;font-size:20px;color:var(--bd)}
+.hero{padding:40px 0 72px;border:0;background:linear-gradient(180deg,#eff6ff,#fff)}.lede{font-size:21px;color:var(--mut);max-width:720px}
+.price{display:inline-block;margin:22px 0;padding:14px 20px;background:#fff;border:2px solid var(--b);border-radius:12px;font-weight:700;font-size:20px}
+.btn{display:inline-block;background:var(--b);color:#fff;text-decoration:none;font-weight:700;padding:15px 26px;border-radius:10px;border:0;font-size:18px;cursor:pointer}.btn:hover{background:var(--bd)}
+small,.small{display:block;color:var(--mut);font-size:17px;margin-top:14px}
+ul.ben{list-style:none;padding:0;display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}ul.ben li{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px}
+.report{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 8px 30px rgba(15,23,42,.08);overflow:hidden}
+.rh{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:16px 20px;background:var(--bd);color:#fff;font-weight:700}.tag{background:#fde68a;color:#78350f;border-radius:999px;padding:2px 12px;font-size:15px}
+table{width:100%;border-collapse:collapse;font-size:17px}th,td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line);vertical-align:top}th{background:var(--bg);font-size:15px;text-transform:uppercase;letter-spacing:.04em;color:var(--mut)}
+tr.need{background:#fff7ed}.sum{padding:16px 20px;background:var(--bg)}.note{font-style:italic;color:var(--mut)}
+.steps{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));list-style:none;padding:0}.steps li{border-left:4px solid var(--b);background:#fff;padding:14px 18px;border-radius:8px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px;max-width:640px}
+label{display:block;font-weight:600;margin:14px 0 6px}input,select,textarea{width:100%;font:inherit;padding:12px;border:1px solid #cbd5e1;border-radius:8px}textarea{min-height:90px}
+footer{padding:30px 0;color:var(--mut);font-size:17px;border-top:1px solid var(--line)}a{color:var(--b)}
+@media(max-width:640px){body{font-size:17px}section{padding:44px 0}table,thead,tbody,tr,td{display:block}thead{display:none}tr{border-bottom:2px solid var(--line);padding:6px 0}td{border:0;padding:4px 16px}td::before{content:attr(data-l);display:block;font-size:13px;text-transform:uppercase;color:var(--mut);font-weight:700}}
 </style></head><body>
-<header><div class="w"><span class="logo">Rentals Desk</span></div></header>
-<div class="hero"><div class="w">
-<h1>Before you hire another maintenance coordinator, let us clear your routine maintenance backlog for 30 days.</h1>
-<p class="sub">Rentals Desk coordinates routine, non-emergency maintenance for small property management teams. We take in the requests, chase the vendors, and keep owners and tenants updated by email.</p>
-<a class="btn" href="mailto:pilot@therentalsdesk.com?subject=30-day%20pilot">Email pilot@therentalsdesk.com to start a 30-day pilot</a>
-</div></div>
-<section><div class="w grid">
-<div><h2>What we handle</h2><ul>
-<li><b>Intake:</b> we log every routine maintenance request that reaches our inbox.</li>
-<li><b>Vendor scheduling:</b> we contact your vendors, book a time, and get the booking confirmed.</li>
-<li><b>Owner approvals:</b> we send the approval request and follow up until we have an answer.</li>
-<li><b>Status updates:</b> we tell the tenant and your team where each request stands.</li>
-<li><b>Morning summary:</b> a 7 AM email showing what moved yesterday and what needs your decision.</li></ul></div>
-<div><h2>What we don't handle</h2><p>Emergencies, legal notices, payments, or any financial decision. Those stay with your team. If a request looks urgent, we send it straight to you and do nothing else with it.</p>
-<p><b>Coming later:</b> rent reminders and vendor insurance (COI) tracking.</p></div>
+<nav class="w">Rentals Desk</nav>
+<section class="hero"><div class="w">
+<h1>Stop chasing maintenance requests. Get your mornings back.</h1>
+<p class="lede">Routine maintenance coordination for property managers with 50 to 200 rental units. We work with your existing vendors and your process. Every morning you get a report of what moved and what needs you.</p>
+<div class="price">30-day pilot: $999. No annual contract. Cancel anytime.</div><br>
+<a class="btn" href="#qualify">See if your properties qualify</a>
+<small>Email-based. Routine requests only. Approvals, payments, and emergencies stay with you.</small>
 </div></section>
-<section><div class="w"><h2>Why Rentals Desk</h2><ul>
-<li><b>One flat, published price:</b> $999/mo for up to 200 doors. You don't need a sales call to see it.</li>
-<li><b>Everything in writing.</b> Every vendor chase is a timestamped email record you can forward to the owner.</li>
-<li><b>A written guarantee:</b> we acknowledge 95% of requests within one business hour and meet our follow-up commitments, or you get your money back.</li>
-<li>It works alongside your current software and vendors.</li></ul>
-<p class="note"><b>What we don't cover:</b> there's no phone line and no after-hours coverage. Keep your emergency line exactly as it is.</p></div></section>
-<section><div class="w grid">
-<div class="card"><h2>The pilot</h2><div class="price">$999</div><p>Flat for 30 days, for up to 200 doors, paid up front, email-only. After that it's month-to-month at $999, and you can cancel anytime.</p><a class="btn" href="mailto:pilot@therentalsdesk.com?subject=30-day%20pilot">Start a pilot</a></div>
-<div class="card"><h2>Our guarantee</h2><p>We'll acknowledge at least 95% of routine maintenance requests within one business hour of receiving them, and we'll meet every follow-up commitment listed in your pilot plan. If we miss either one during the 30-day pilot, we'll refund the full $999.</p><p>Business hours are Monday through Friday, 8 AM to 6 PM in your local time, holidays excluded. The morning summary shows our response times, so you can check our work.</p></div>
-</div></section>
-<section><div class="w"><h2>FAQ</h2><dl>
-<dt>What access do you need?</dt><dd>A forwarding address for maintenance requests, your vendor list, and your owner-approval rules.</dd>
-<dt>Phones, texts, or after-hours coverage?</dt><dd>No. Everything runs by email, so everything is in writing. Keep your emergency line.</dd>
-<dt>Who makes the decisions?</dt><dd>You do. We coordinate and follow up, and anything involving money, the law, or an emergency comes back to you.</dd>
-<dt>Is this AI?</dt><dd>We use software to stay fast, and a person checks the work.</dd>
-<dt>What if I'm not happy?</dt><dd>If we miss the guarantee, you get a full refund.</dd></dl>
-<p style="margin-top:28px"><a class="btn" href="mailto:pilot@therentalsdesk.com?subject=30-day%20pilot">Email pilot@therentalsdesk.com to start a 30-day pilot</a></p></div></section>
+<section><div class="w"><h2>Stop spending your mornings chasing vendors</h2><ul class="ben">
+<li><strong>Requests don't sit.</strong> Every routine request gets a reply within one business hour.</li>
+<li><strong>Vendors get booked.</strong> We follow up until the visit is confirmed or your team needs to step in.</li>
+<li><strong>Owners answer.</strong> We chase approval requests so jobs don't stall waiting on a yes.</li>
+<li><strong>Tenants know where things stand.</strong> They get status updates in writing, so they don't keep calling your office.</li>
+<li><strong>You start the day knowing what needs you.</strong> You get one short report at 7 AM.</li></ul></div></section>
+<section class="alt"><div class="w"><h2>Your 7 AM Morning Maintenance Brief</h2>
+<p class="note">Example report. These addresses and jobs are made up.</p>
+<div class="report"><div class="rh"><span>Morning Maintenance Brief · 7:00 AM</span><span class="tag">Example report</span></div>
+<table><thead><tr><th>Property</th><th>Issue</th><th>Status</th><th>What's next</th></tr></thead><tbody>
+<tr><td data-l="Property">412 Alder St, Unit 3</td><td data-l="Issue">Kitchen sink leaking under cabinet</td><td data-l="Status">Plumber confirmed for Thu 10 AM</td><td data-l="What's next">Nothing. We'll confirm with the tenant Wednesday.</td></tr>
+<tr class="need"><td data-l="Property">88 Ridgeview Ct</td><td data-l="Issue">Garage door won't close</td><td data-l="Status">Two quotes in, $340 and $415</td><td data-l="What's next"><strong>Needs you:</strong> the $415 quote is over your $350 limit. Approve or pick the $340 vendor.</td></tr>
+<tr><td data-l="Property">1520 Mission Blvd, Unit 12</td><td data-l="Issue">Bathroom fan noisy</td><td data-l="Status">Owner approval requested Mon</td><td data-l="What's next">We sent a second reminder to the owner today.</td></tr>
+<tr><td data-l="Property">7 Laurel Ln</td><td data-l="Issue">Dishwasher not draining</td><td data-l="Status">Vendor no-show Tue</td><td data-l="What's next">Rebooked for Fri 1 PM. Tenant has been told.</td></tr>
+</tbody></table><div class="sum"><strong>Summary:</strong> 4 open requests. 1 needs your decision. 0 emergencies were forwarded to you.</div></div></div></section>
+<section><div class="w"><h2>How the pilot works</h2>
+<p><strong>What you send us:</strong> your vendor list, your approval limits (for example, "anything over $350 needs me"), and owner contact details.</p>
+<p><strong>How requests reach us:</strong> set up an auto-forward rule for the maintenance notification emails from your property software (for example AppFolio, Buildium, or Rent Manager). Then forward or cc your maintenance inbox. Your tenants don't have to change anything.</p>
+<ul class="steps"><li><strong>Days 1-5, setup:</strong> we load your vendors and rules, test the forwarding, and send you a sample brief.</li>
+<li><strong>Weeks 2-4, live:</strong> we coordinate routine requests and send the 7 AM brief every business day.</li>
+<li><strong>Day 30, review:</strong> we go over response times, what got done, and what needed you. You decide whether to continue month-to-month.</li></ul>
+<p><strong>How you pay:</strong> after we confirm your properties are a fit, we reply with a secure Stripe payment link. You pay $999 up front for the 30-day pilot.</p></div></section>
+<section class="alt"><div class="w"><h2>How we keep you in control</h2><ul>
+<li>You approve anything over your dollar limit.</li><li>We never touch anything financial or legal.</li>
+<li>Every action we take is logged and shows up in your daily report.</li>
+<li>Every action is logged and checked every business day; anything unusual goes to you.</li>
+<li>We only use the inbox and spreadsheet you give us access to.</li><li>You can revoke our access at any time.</li>
+<li>There's no phone line and no after-hours coverage. Keep your emergency line as it is.</li></ul>
+<p><strong>Who runs this:</strong> Rentals Desk is a new service run by Andrew Keery. We don't have reviews to show you yet, which is why the pilot comes with the guarantee below.</p></div></section>
+<section><div class="w"><h2>Our guarantee</h2>
+<p>If we miss our one-business-hour response window on more than 10% of routine requests in a month, or we miss a follow-up and don't fix it within one business day of you flagging it, we'll refund the pilot in full.</p>
+<p>Business hours are Monday to Friday, 8 AM to 6 PM in your local time, holidays excluded. We guarantee our coordination, not vendor arrival times.</p></div></section>
+<section class="alt" id="qualify"><div class="w"><h2>See if your properties qualify</h2>
+<p>Tell us a little about your portfolio. We'll reply by email within one business day. <em>(The form is sent to pilot@therentalsdesk.com.)</em></p>
+<form class="card" id="f">
+<label for="company">Company name</label><input id="company" required>
+<label for="name">Your name</label><input id="name" required>
+<label for="email">Email</label><input id="email" type="email" required>
+<label for="units">Approx. number of units</label><input id="units" inputmode="numeric" required>
+<label for="sw">Property management software</label><select id="sw" required><option value="">Choose one</option><option>AppFolio</option><option>Buildium</option><option>Rent Manager</option><option>Other</option><option>None</option></select>
+<label for="how">How do maintenance requests reach you today?</label><textarea id="how" required></textarea>
+<p><button class="btn" type="submit">See if your properties qualify</button></p>
+<small>Sending this doesn't sign you up for anything or charge you.</small>
+<small>Or email <a href="mailto:pilot@therentalsdesk.com">pilot@therentalsdesk.com</a></small>
+</form></div></section>
+<section><div class="w"><h2>FAQ</h2><ul>
+<li><strong>Do you replace my software?</strong> No. We work alongside your current software and vendors.</li>
+<li><strong>Phones, texts, or after-hours coverage?</strong> No. Everything happens by email, so everything is in writing.</li>
+<li><strong>What don't you handle?</strong> Emergencies, legal notices, payments, and financial decisions.</li>
+<li><strong>Is this AI?</strong> Yes. AI agents do the coordination work. Andrew Keery runs the service, and anything unusual comes to you for a decision.</li>
+<li><strong>Coming later:</strong> rent reminders and vendor insurance (COI) tracking.</li></ul></div></section>
 <footer><div class="w">Andrew Keery · Rentals Desk · PO Box 116, Danville Court, Danville, CA 94526</div></footer>
-</body></html>
+<script>
+document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();var g=function(i){return document.getElementById(i).value.trim()};
+var body='Company: '+g('company')+'\nName: '+g('name')+'\nEmail: '+g('email')+'\nApprox. units: '+g('units')+'\nPM software: '+g('sw')+'\nHow requests come in: '+g('how');
+location.href='mailto:pilot@therentalsdesk.com?subject='+encodeURIComponent('Pilot fit check: '+g('company'))+'&body='+encodeURIComponent(body);});
+</script></body></html>
