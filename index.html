@@ -8,17 +8,19 @@
 <link rel="icon" href="/favicon.ico" sizes="any">
 <script>
 // ---- Tracking config ----
-// GA4: paste the therentalsdesk.com measurement ID here (e.g. 'G-XXXXXXXXXX'). Empty = GA4 off, no GA4 calls.
-var GA4_MEASUREMENT_ID = '';
+// GA4 (therentalsdesk.com, property 560122202, stream 16177638976). Empty string = GA4 off, no GA4 calls.
+var GA4_MEASUREMENT_ID = 'G-CCXYRK3GHJ';
 var ADS_ID = 'AW-18439089492';
 var ADS_LEAD_SEND_TO = 'AW-18439089492/B0UXCP7Tl50dENTauNhE';
 var FORM_ENDPOINT = 'https://formspree.io/f/mbglbwrb';
 var OFFER = 'founding-299';
 window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
 gtag('js',new Date());gtag('config',ADS_ID);
+// GA4 dedupe: enhanced measurement (ON in the stream) sends form_start/form_submit automatically.
+// This page sends ONLY the custom generate_lead, once, after a confirmed Formspree success.
 if(GA4_MEASUREMENT_ID){gtag('config',GA4_MEASUREMENT_ID);}
 </script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18439089492"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CCXYRK3GHJ"></script>
 <style>
 :root{--b:#1d4ed8;--bd:#1e3a8a;--ink:#0f172a;--mut:#475569;--line:#e2e8f0;--bg:#f8fafc;--warm:#fff7ed;--warmb:#fdba74;--ok:#15803d;--err:#b91c1c}
 *{box-sizing:border-box}html{scroll-behavior:smooth}
@@ -131,12 +133,12 @@ footer{padding:26px 0 90px;color:var(--mut);font-size:14.5px;border-top:1px soli
 <div>
 <p class="eyebrow">For property managers · 50–200 units</p>
 <h1>We chase your vendors. You get a 7 AM report of what needs you.</h1>
-<p class="sub">Done-for-you maintenance coordination by email, for property managers with 50 to 200 units. We take in routine requests, book and confirm your vendors, and chase owner approvals. Approvals, payments, and emergencies stay with you.</p>
+<p class="sub">Done-for-you maintenance coordination by email, for property managers with 50 to 200 units. We take in routine requests, book and confirm your vendors, and chase owner approvals. Your team retains control of emergencies, approval decisions, and payments.</p>
 <p class="priceline"><strong>$299</strong> founding-customer pilot for your first 30 days (regular $999/month). No setup fee, no annual contract.</p>
 <div class="ctarow"><a class="btn" href="#form" data-cta="hero">Request the $299 Pilot</a><a class="seclink" href="#report">See the 7 AM report ↓</a></div>
 </div>
 <div class="proof">
-<div class="pc"><b>Backed by a guarantee.</b>If we miss our one-business-hour reply on more than 10% of routine requests during your first month, you get your $299 pilot fee back. <a href="#guarantee" data-open="guarantee">Guarantee details ↓</a></div>
+<div class="pc"><b>Backed by a guarantee.</b>If we miss our one-business-hour standard on 3 or more requests, or miss 2 or more morning reports, during your pilot, you get your $299 pilot fee back. <a href="#pilot-terms" data-open="terms">Pilot terms ↓</a></div>
 <div class="pc"><b>Who runs it.</b>Rentals Desk is a new service from Keery Property Holdings, LLC. AI agents do the coordination work, and the day's work gets human review every business day.</div>
 </div>
 </div></section>
@@ -162,8 +164,8 @@ footer{padding:26px 0 90px;color:var(--mut);font-size:14.5px;border-top:1px soli
 <p>Let Rentals Desk handle your routine maintenance follow-ups for 30 days. See whether it saves your team time before committing to the regular $999/month service.</p>
 <ul>
 <li>First 30 days $299, paid up front</li>
-<li>Limited to the first 3 property management companies</li>
-<li>Includes up to 15 routine requests</li>
+<li>Limited to the first 3 property management companies to respond</li>
+<li>Includes up to 30 routine requests (<a href="#pilot-terms" data-open="terms">pilot terms</a>)</li>
 <li>No setup fee. No annual contract.</li>
 <li>Continues at $999/month only if you say yes after the pilot.</li>
 </ul>
@@ -172,8 +174,8 @@ footer{padding:26px 0 90px;color:var(--mut);font-size:14.5px;border-top:1px soli
 <div>
 <h2 style="font-size:24px">What's included</h2>
 <div class="scope">
-<div><h3>We handle</h3><p>Routine maintenance requests by email, booking and confirming your vendors, chasing owner approvals, written status updates to tenants, and the 7 AM report every business day (Mon–Fri, 8 AM–6 PM your local time).</p></div>
-<div><h3>You keep</h3><p>Emergencies (we pass them straight to you), approvals over your dollar limit, payments, and legal notices. There's no phone line and no after-hours coverage, so keep your emergency line as it is.</p></div>
+<div><h3>We handle</h3><p>Routine maintenance requests by email, booking and confirming your vendors, chasing owner approvals, written status updates to tenants, and the 7 AM report every business day (Mon–Fri, 8 AM–6 PM Pacific). We coordinate approvals; we don't make them.</p></div>
+<div><h3>You keep</h3><p>Your team retains control of emergencies, approval decisions, and payments. We pass emergencies straight to you, and legal notices stay with you. There's no phone line and no after-hours coverage, so keep your emergency line as it is.</p></div>
 <div><h3>Payment</h3><p>You pay only after we confirm your properties are a fit. Then we email you a secure Stripe link for your $299 pilot.</p></div>
 </div>
 </div>
@@ -212,17 +214,23 @@ footer{padding:26px 0 90px;color:var(--mut);font-size:14.5px;border-top:1px soli
 </div></section>
 
 <section><div class="w" style="max-width:760px">
-<details id="guarantee"><summary>Guarantee details</summary><div>
-<p>During your first month we commit to four things, during business hours (Mon–Fri, 8 AM–6 PM your local time, holidays excluded):</p>
+<!-- ===== PILOT TERMS: single editable block. Source (verbatim): lyc-ops/ops/desk-tests/b45-pm-backoffice/2026-10-21-B45-offer-299-pilot-terms-and-reply-templates-rank1.md section A ===== -->
+<details id="pilot-terms"><summary>$299 founding pilot: the terms</summary><div>
+<p><strong>What you get.</strong> For 30 days, Rentals Desk coordinates up to 30 routine maintenance requests for your properties, by email. You get a report at 7 AM Pacific every business day. The pilot costs $299, paid up front. There's no setup fee and no annual contract.</p>
+<p><strong>What stays with you.</strong> Your team retains control of emergencies, approval decisions, and payments. We coordinate approvals, which means we ask owners and chase them for an answer, but we never make the decision ourselves. If an emergency reaches us, we pass it straight to you.</p>
+<p><strong>Our response standard.</strong> When a routine request reaches us, we do two things within 1 business hour: let the tenant know we've got it, and contact a vendor. Business hours are Monday to Friday, 8 AM to 6 PM Pacific, not counting US federal holidays. If a request comes in outside business hours, the hour starts at 8 AM the next business day.</p>
+<p><strong>What counts as one request.</strong> One request is one maintenance issue at one unit, from the time it reaches us until it's closed. If the same issue comes back within 14 days, it's still the same request. A new issue is a new request.</p>
+<p><strong>If you get busy.</strong> We email you when you reach your 25th request. Once you've reached 30, every new request goes straight back to you, along with a written note saying Rentals Desk is not handling it, so nothing falls through the cracks. Requests we're already working on keep getting follow-up through day 30. We'll only take on more if you approve it in writing, and you'll never get a surprise charge.</p>
+<p><strong>Our guarantee.</strong> You get your full $299 back if, during the pilot, either of these happens:</p>
 <ul>
-<li>We reply to every routine request within one business hour.</li>
-<li>We contact a vendor from your list the same business day, follow up every business day, and flag it in your report if nothing is booked after 2 business days.</li>
-<li>We send owner approval requests within one business day of getting a quote, and follow up every business day.</li>
-<li>You get your report by 7 AM every business day.</li>
+<li>We miss the 1-business-hour standard on 3 or more requests.</li>
+<li>We miss 2 or more 7 AM reports.</li>
 </ul>
-<p><strong>Full refund of your $299 pilot fee if:</strong> we miss the one-hour reply on more than 10% of routine requests, we miss 3 or more morning reports, or we miss a follow-up commitment and don't fix it within one business day after you flag it. Email <a href="mailto:pilot@therentalsdesk.com">pilot@therentalsdesk.com</a> within 7 days after your first month ends.</p>
-<p><strong>Not covered:</strong> emergencies, approvals, payments, and legal notices; vendor no-shows, lateness, or workmanship; delays caused by tenants or unresponsive owners; requests that never reached us or arrived after hours (the clock starts the next business morning); and changes on your side, such as turning off forwarding.</p>
+<p>One late reply on its own doesn't count as a failure.</p>
+<p><strong>How to get your refund.</strong> Email <a href="mailto:pilot@therentalsdesk.com">pilot@therentalsdesk.com</a> within 7 days after your pilot ends. We'll check our logs and share them with you. If we missed the standard, we'll refund the $299 to the card you paid with within 5 business days.</p>
+<p><strong>After 30 days.</strong> The pilot simply ends. It only continues at $999/month if you tell us you want it to.</p>
 </div></details>
+<!-- ===== /PILOT TERMS ===== -->
 <details><summary>Is this AI?</summary><div><p>Yes. AI agents do the coordination work, with human review every business day. Anything unusual comes to you for a decision.</p></div></details>
 <details><summary>Do you replace my software?</summary><div><p>No. We work alongside your current software and vendors.</p></div></details>
 <details><summary>Phones, texts, or after-hours coverage?</summary><div><p>No. Everything happens by email, so everything is in writing.</p></div></details>
@@ -234,19 +242,21 @@ footer{padding:26px 0 90px;color:var(--mut);font-size:14.5px;border-top:1px soli
 (function(){
 var f=document.getElementById('f'),em=document.getElementById('email'),emErr=document.getElementById('email-err'),
 un=document.getElementById('units'),unErr=document.getElementById('units-err'),btn=document.getElementById('sbtn'),
-ferr=document.getElementById('ferr'),ok=document.getElementById('ok'),started=false;
+ferr=document.getElementById('ferr'),ok=document.getElementById('ok'),started=false,sending=false,leadSent=false;
+function fv(id){var e=document.getElementById(id);return e&&e.value?e.value:'(none)';}
 function ga(name,params){if(!GA4_MEASUREMENT_ID)return;try{params=params||{};params.send_to=GA4_MEASUREMENT_ID;gtag('event',name,params);}catch(e){}}
 // UTM / gclid capture into hidden fields
 try{var q=new URLSearchParams(location.search);['utm_source','utm_medium','utm_campaign','utm_content','gclid'].forEach(function(k){var v=q.get(k);if(v)document.getElementById(k).value=v.slice(0,200);});}catch(e){}
 document.getElementById('page').value=location.href.split('#')[0];
-// form_start once, on first interaction
-function start(){if(started)return;started=true;ga('form_start',{form_id:'pilot',offer:OFFER});}
-f.addEventListener('focusin',start);f.addEventListener('input',start);
+// form_start: NOT sent by this page (GA4 enhanced measurement sends it).
+function start(){started=true;}
 // report expander (mobile)
 var rep=document.getElementById('rep'),more=document.getElementById('more');
 more.addEventListener('click',function(){var c=rep.classList.toggle('collapsed');more.setAttribute('aria-expanded',String(!c));more.textContent=c?'Show full report (4 rows + summary) ▾':'Show less ▴';});
-// guarantee link opens details
-document.querySelectorAll('[data-open=guarantee]').forEach(function(a){a.addEventListener('click',function(){document.getElementById('guarantee').open=true;});});
+// pilot-terms links open the details
+function openTerms(){var d=document.getElementById('pilot-terms');if(d)d.open=true;}
+document.querySelectorAll('[data-open=terms]').forEach(function(a){a.addEventListener('click',openTerms);});
+if(location.hash==='#pilot-terms')openTerms();window.addEventListener('hashchange',function(){if(location.hash==='#pilot-terms')openTerms();});
 // sticky bar hides when form visible
 var st=document.getElementById('sticky'),fs=document.getElementById('form');
 if('IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){st.classList.toggle('hide',e.isIntersecting);st.setAttribute('aria-hidden',e.isIntersecting?'true':'false');st.querySelector('a').tabIndex=e.isIntersecting?-1:0;});},{threshold:0.05}).observe(fs);}
@@ -258,20 +268,21 @@ em.addEventListener('blur',function(){if(em.value.trim())vEmail(true);});
 em.addEventListener('input',function(){if(em.getAttribute('aria-invalid'))vEmail(true);});
 un.addEventListener('change',function(){vUnits(false);});
 f.addEventListener('submit',function(e){
- e.preventDefault();ferr.hidden=true;start();
+ e.preventDefault();if(sending||leadSent)return;ferr.hidden=true;start();
  var a=vEmail(true),b=vUnits(true);if(!a){em.focus();return;}if(!b){un.querySelector('input').focus();return;}
- btn.disabled=true;btn.textContent='Sending…';
+ sending=true;btn.disabled=true;btn.textContent='Sending…';
  var data=new FormData(f),units=(f.querySelector('input[name=units]:checked')||{}).value||'';
  fetch(FORM_ENDPOINT,{method:'POST',body:data,headers:{'Accept':'application/json'}})
  .then(function(res){return res.json().catch(function(){return {};}).then(function(j){return {ok:res.ok&&j.ok!==false,j:j};});})
  .then(function(r){
   if(!r.ok)throw new Error('submit failed');
-  // ---- Confirmed success only: fire conversions here ----
+  if(leadSent)return; leadSent=true; sending=false;
+  // ---- Confirmed success only: fire conversions here (exactly once per page load) ----
   try{gtag('event','conversion',{send_to:ADS_LEAD_SEND_TO,transport_type:'beacon'});}catch(e){}
-  ga('generate_lead',{form_id:'pilot',offer:OFFER,units:units,currency:'USD',value:299});
+  ga('generate_lead',{form_id:'pilot',offer:OFFER,units:units,currency:'USD',value:299,utm_source:fv('utm_source'),utm_medium:fv('utm_medium'),utm_campaign:fv('utm_campaign'),utm_content:fv('utm_content')});
   f.hidden=true;ok.hidden=false;ok.focus();
  })
- .catch(function(){btn.disabled=false;btn.textContent='Request the $299 Pilot';ferr.hidden=false;});
+ .catch(function(){sending=false;btn.disabled=false;btn.textContent='Request the $299 Pilot';ferr.hidden=false;});
 });
 })();
 </script>
