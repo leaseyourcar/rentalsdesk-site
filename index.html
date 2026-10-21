@@ -102,6 +102,7 @@ footer{padding:26px 0 90px;color:var(--mut);font-size:14.5px;border-top:1px soli
 .sticky .btn{width:100%}
 .sticky.hide{transform:translateY(120%)}
 .alt{background:var(--bg)}
+.paidbar{background:#dcfce7;border-bottom:1px solid #86efac;color:#14532d;padding:16px 0;font-size:16px}
 .ctasub{font-size:14px;color:var(--mut);margin:8px 0 0}
 .card .ctasub{text-align:center}
 .volline{font-size:14px;color:var(--mut);margin:-10px 0 18px}
@@ -148,6 +149,7 @@ footer{padding:26px 0 90px;color:var(--mut);font-size:14.5px;border-top:1px soli
 </style></head><body>
 <header><div class="w"><a class="logo" href="/">Rentals Desk</a><a class="hlink" href="#form">See if Your Properties Qualify ↓</a></div></header>
 <main>
+<div id="thanks" class="paidbar" role="status" hidden><div class="w"><strong>Payment received.</strong> We'll email your setup checklist from pilot@therentalsdesk.com within one business hour.</div></div>
 <section class="hero"><div class="w herogrid">
 <div>
 <p class="eyebrow">For property management teams</p>
@@ -319,6 +321,20 @@ f.addEventListener('submit',function(e){
  })
  .catch(function(){sending=false;btn.disabled=false;btn.textContent='See if Your Properties Qualify';ferr.hidden=false;});
 });
+})();
+</script>
+<script>
+// ?paid=1 (Stripe Payment Link redirect): show confirmation + GA4 purchase once per session. No Ads lead conversion here.
+(function(){
+try{if(new URLSearchParams(location.search).get('paid')!=='1')return;}catch(e){return;}
+var t=document.getElementById('thanks');if(t){t.hidden=false;try{t.scrollIntoView();}catch(e){}}
+if(!GA4_MEASUREMENT_ID)return;
+var sent=false,tid='';
+try{sent=sessionStorage.getItem('rd_purchase_sent')==='1';tid=sessionStorage.getItem('rd_purchase_tid')||'';}catch(e){}
+if(sent)return;
+if(!tid){tid='rd299-'+Date.now()+'-'+Math.random().toString(36).slice(2,8);}
+try{sessionStorage.setItem('rd_purchase_tid',tid);sessionStorage.setItem('rd_purchase_sent','1');}catch(e){}
+try{gtag('event','purchase',{send_to:GA4_MEASUREMENT_ID,transaction_id:tid,value:299,currency:'USD',offer:OFFER,items:[{item_id:'founding-299',item_name:'Rentals Desk founding pilot (30 days)',price:299,quantity:1}]});}catch(e){}
 })();
 </script>
 </body></html>
