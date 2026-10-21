@@ -16,8 +16,8 @@ var FORM_ENDPOINT = 'https://formspree.io/f/mbglbwrb';
 var OFFER = 'founding-299';
 window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
 gtag('js',new Date());gtag('config',ADS_ID);
-// GA4 dedupe: enhanced measurement (ON in the stream) sends form_start/form_submit automatically.
-// This page sends ONLY the custom generate_lead, once, after a confirmed Formspree success.
+// GA4: this page sends form_start (once, first focus) and generate_lead (once, after confirmed Formspree success).
+// Dedupe: turn OFF Enhanced measurement > Form interactions on stream 16177638976 (can't be done in page code).
 if(GA4_MEASUREMENT_ID){gtag('config',GA4_MEASUREMENT_ID);}
 </script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CCXYRK3GHJ"></script>
@@ -123,6 +123,11 @@ footer{padding:26px 0 90px;color:var(--mut);font-size:14.5px;border-top:1px soli
  td::before{content:attr(data-l);display:block;font-size:12px;text-transform:uppercase;color:var(--mut);font-weight:700;letter-spacing:.04em}
  .report.collapsed tr:not(.need),.report.collapsed .sum{display:none}
  .more{display:flex;width:100%;justify-content:center;min-height:48px;margin-top:10px;background:#fff;border:1.5px solid #64748b;border-radius:10px;font:inherit;font-weight:700;color:var(--ink);cursor:pointer;align-items:center}
+}
+@media(max-width:719px){
+ main{display:flex;flex-direction:column}
+ main>.hero{order:1}main>#form{order:2}main>#report{order:3}main>#offer{order:4}main>section:last-child{order:5}
+ #report>.w{display:flex;flex-direction:column}#report>.w>*{order:2}#report .proof{order:1;margin:0 0 22px}
 }
 @media(min-width:720px){
  section{padding:56px 0}
@@ -277,8 +282,9 @@ function ga(name,params){if(!GA4_MEASUREMENT_ID)return;try{params=params||{};par
 // UTM / gclid capture into hidden fields
 try{var q=new URLSearchParams(location.search);['utm_source','utm_medium','utm_campaign','utm_content','gclid'].forEach(function(k){var v=q.get(k);if(v)document.getElementById(k).value=v.slice(0,200);});}catch(e){}
 document.getElementById('page').value=location.href.split('#')[0];
-// form_start: NOT sent by this page (GA4 enhanced measurement sends it).
-function start(){started=true;}
+// form_start: sent once per page load, on first form focus.
+function start(){if(started)return;started=true;ga('form_start',{form_id:'pilot',offer:OFFER});}
+f.addEventListener('focusin',start);
 // report expander (mobile)
 var rep=document.getElementById('rep'),more=document.getElementById('more');
 more.addEventListener('click',function(){var c=rep.classList.toggle('collapsed');more.setAttribute('aria-expanded',String(!c));more.textContent=c?'Show full report (4 rows + summary) ▾':'Show less ▴';});
@@ -311,7 +317,7 @@ f.addEventListener('submit',function(e){
   ga('generate_lead',{form_id:'pilot',offer:OFFER,units:units,currency:'USD',value:299,utm_source:fv('utm_source'),utm_medium:fv('utm_medium'),utm_campaign:fv('utm_campaign'),utm_content:fv('utm_content')});
   f.hidden=true;ok.hidden=false;ok.focus();
  })
- .catch(function(){sending=false;btn.disabled=false;btn.textContent='Request the $299 Pilot';ferr.hidden=false;});
+ .catch(function(){sending=false;btn.disabled=false;btn.textContent='See if Your Properties Qualify';ferr.hidden=false;});
 });
 })();
 </script>
