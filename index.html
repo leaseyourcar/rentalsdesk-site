@@ -102,6 +102,20 @@ footer{padding:26px 0 90px;color:var(--mut);font-size:14.5px;border-top:1px soli
 .sticky .btn{width:100%}
 .sticky.hide{transform:translateY(120%)}
 .alt{background:var(--bg)}
+.ctasub{font-size:14px;color:var(--mut);margin:8px 0 0}
+.card .ctasub{text-align:center}
+.volline{font-size:14px;color:var(--mut);margin:-10px 0 18px}
+.mini{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 8px 30px rgba(15,23,42,.08);overflow:hidden;margin-top:20px}
+.mh{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:11px 14px;background:var(--bd);color:#fff;font-weight:700;font-size:14.5px}
+.mini ul{list-style:none;margin:0;padding:0}
+.mini li{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line);font-size:14px}
+.mini li div{min-width:0}.mini li b{display:block;font-size:14px}.mini li span{color:var(--mut);font-size:13.5px}
+.mini li.mneed{background:var(--warm);box-shadow:inset 4px 0 0 #f97316}
+.st{font-style:normal;font-weight:700;font-size:12.5px;white-space:nowrap;border-radius:999px;padding:3px 9px}
+.st-ok{background:#dcfce7;color:#166534}.st-wait{background:#e0e7ff;color:#3730a3}.st-need{background:#ffedd5;color:#9a3412}
+.mlink{display:block;padding:11px 14px;font-weight:700;font-size:14.5px;text-decoration:none}
+#report .proof{margin-top:22px}
+@media(max-width:400px){.mini li{flex-direction:column;align-items:flex-start;gap:4px}}
 /* mobile report */
 @media(max-width:719px){
  table,thead,tbody,tr,td{display:block}thead{display:none}
@@ -120,26 +134,33 @@ footer{padding:26px 0 90px;color:var(--mut);font-size:14.5px;border-top:1px soli
  .card{padding:28px}
 }
 @media(min-width:980px){
- .herogrid{display:grid;grid-template-columns:1.2fr .8fr;gap:44px;align-items:start}.herogrid .proof{grid-template-columns:1fr;margin-top:30px}
+ .herogrid{display:grid;grid-template-columns:1.2fr .8fr;gap:44px;align-items:start}.herogrid .mini{margin-top:6px}
  .offergrid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
  .scope{grid-template-columns:1fr;margin-top:0}
  .fwrap{grid-template-columns:1fr 440px;align-items:start}
  .fwrap .report{position:sticky;top:20px}
 }
 </style></head><body>
-<header><div class="w"><a class="logo" href="/">Rentals Desk</a><a class="hlink" href="#form">Request the $299 Pilot ↓</a></div></header>
+<header><div class="w"><a class="logo" href="/">Rentals Desk</a><a class="hlink" href="#form">See if Your Properties Qualify ↓</a></div></header>
 <main>
 <section class="hero"><div class="w herogrid">
 <div>
 <p class="eyebrow">For property management teams</p>
 <h1>We chase your vendors. You get a 7 AM report of what needs you.</h1>
-<p class="sub">Done-for-you maintenance coordination by email, for property management teams. We take in routine requests, book and confirm your vendors, and chase owner approvals. Your team retains control of emergencies, approval decisions, and payments.</p>
-<p class="priceline"><strong>$299</strong> for your first 30 days, then $999/month only if you continue. No setup fee, no annual contract.</p>
-<div class="ctarow"><a class="btn" href="#form" data-cta="hero">Request the $299 Pilot</a><a class="seclink" href="#report">See the 7 AM report ↓</a></div>
+<p class="sub">We handle routine maintenance requests, coordinate your existing vendors, and follow up with tenants and owners. You get a clear report every business morning. Your team keeps control of emergencies, approvals, and payments.</p>
+<p class="priceline"><strong>$299 founding-customer pilot</strong> — 30 days, up to 30 routine maintenance requests. Then $999/month only if you choose to continue. No setup fee. No annual contract.</p>
+<p class="volline">Request volume for the $999/month plan is agreed in writing before you continue, with no surprise charges.</p>
+<div class="ctarow"><a class="btn" href="#form" data-cta="hero">See if Your Properties Qualify</a></div>
+<p class="ctasub">30-day founding pilot: $299 · No payment to inquire</p>
 </div>
-<div class="proof">
-<div class="pc"><b>Backed by a guarantee.</b>If we miss our one-business-hour standard on 3 or more requests, or miss 2 or more morning reports, during your pilot, you get your $299 pilot fee back. <a href="#pilot-terms" data-open="terms">Pilot terms ↓</a></div>
-<div class="pc"><b>Who runs it.</b>Rentals Desk is a new service from Keery Property Holdings, LLC. AI agents do the coordination work, and the day's work gets human review every business day.</div>
+<div class="mini" aria-label="Sample 7 AM report, illustrative example">
+<div class="mh"><span>7 AM report · Tuesday</span><span class="tag">ILLUSTRATIVE</span></div>
+<ul>
+<li><div><b>412 Alder St, Unit 3</b><span>Kitchen sink leaking under cabinet</span></div><em class="st st-ok">Vendor confirmed</em></li>
+<li><div><b>1520 Mission Blvd, Unit 12</b><span>Bathroom fan noisy</span></div><em class="st st-wait">Awaiting owner approval</em></li>
+<li class="mneed"><div><b>88 Ridgeview Ct</b><span>$415 garage door quote is over your $350 limit</span></div><em class="st st-need">Needs your decision</em></li>
+</ul>
+<a class="mlink" href="#report">See the full example report ↓</a>
 </div>
 </div></section>
 
@@ -154,6 +175,10 @@ footer{padding:26px 0 90px;color:var(--mut);font-size:14.5px;border-top:1px soli
 <tr><td data-l="Property">7 Laurel Ln</td><td data-l="Issue">Dishwasher not draining</td><td data-l="Status">Vendor no-show Tue</td><td data-l="What's next">Rebooked for Fri 1 PM. The tenant has been told.</td></tr>
 </tbody></table><div class="sum"><strong>Summary:</strong> 4 open requests. 1 needs your decision. 0 emergencies forwarded to you.</div></div>
 <button type="button" class="more" id="more" aria-expanded="false" aria-controls="rep">Show full report (4 rows + summary) ▾</button>
+<div class="proof">
+<div class="pc"><b>Backed by a guarantee.</b>If we miss our one-business-hour standard on 3 or more requests, or miss 2 or more morning reports, during your pilot, you get your $299 pilot fee back. <a href="#pilot-terms" data-open="terms">Pilot terms ↓</a></div>
+<div class="pc"><b>Who runs it.</b>Rentals Desk is a new service from Keery Property Holdings, LLC. AI agents do the coordination work, and the day's work gets human review every business day.</div>
+</div>
 </div></section>
 
 <section id="offer"><div class="w offergrid">
@@ -169,7 +194,8 @@ footer{padding:26px 0 90px;color:var(--mut);font-size:14.5px;border-top:1px soli
 <li>No setup fee. No annual contract.</li>
 <li>Continues at $999/month only if you say yes after the pilot.</li>
 </ul>
-<a class="btn" href="#form" data-cta="offer">Request the $299 Pilot</a>
+<a class="btn" href="#form" data-cta="offer">See if Your Properties Qualify</a>
+<p class="ctasub">30-day founding pilot: $299 · No payment to inquire</p>
 </div>
 <div>
 <h2 style="font-size:24px">What's included</h2>
@@ -202,7 +228,8 @@ footer{padding:26px 0 90px;color:var(--mut);font-size:14.5px;border-top:1px soli
 <input type="hidden" name="gclid" id="gclid"><input type="hidden" name="page" id="page">
 <input type="hidden" name="_subject" value="Rentals Desk lead: $299 founding pilot request">
 <div class="hp" aria-hidden="true"><label for="_gotcha">Leave blank</label><input id="_gotcha" name="_gotcha" tabindex="-1" autocomplete="off"></div>
-<button class="btn" type="submit" id="sbtn">Request the $299 Pilot</button>
+<button class="btn" type="submit" id="sbtn">See if Your Properties Qualify</button>
+<p class="ctasub">30-day founding pilot: $299 · No payment to inquire</p>
 <p class="fine">After you request, we email your $299 payment link. If during setup we find we can't support how your requests come in, we refund the full $299. We only use your email to reply about Rentals Desk.</p>
 <div class="formerr" id="ferr" role="alert" hidden>Something went wrong and your request wasn't sent. Please try again, or email <a href="mailto:pilot@therentalsdesk.com">pilot@therentalsdesk.com</a>.</div>
 </form>
@@ -239,7 +266,7 @@ footer{padding:26px 0 90px;color:var(--mut);font-size:14.5px;border-top:1px soli
 </div></section>
 </main>
 <footer><div class="w">Rentals Desk · Keery Property Holdings, LLC · PO Box 116, Danville, CA 94526 · <a href="mailto:pilot@therentalsdesk.com">pilot@therentalsdesk.com</a></div></footer>
-<div class="sticky" id="sticky"><a class="btn" href="#form" data-cta="sticky">Request the $299 Pilot</a></div>
+<div class="sticky" id="sticky"><a class="btn" href="#form" data-cta="sticky">See if Your Properties Qualify</a></div>
 <script>
 (function(){
 var f=document.getElementById('f'),em=document.getElementById('email'),emErr=document.getElementById('email-err'),
