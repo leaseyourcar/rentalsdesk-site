@@ -147,13 +147,13 @@ footer{padding:26px 0 90px;color:var(--mut);font-size:14.5px;border-top:1px soli
  .fwrap .report{position:sticky;top:20px}
 }
 </style></head><body>
-<header><div class="w"><a class="logo" href="/">Rentals Desk</a><a class="hlink" href="#form">See if Your Properties Qualify ↓</a></div></header>
+<header><div class="w"><a class="logo" href="/">Rentals Desk</a><a class="hlink" href="#form" data-cta="header">See if Your Properties Qualify ↓</a></div></header>
 <main>
-<div id="thanks" class="paidbar" role="status" hidden><div class="w"><strong>Payment received.</strong> We'll email your setup checklist from pilot@therentalsdesk.com within one business hour.</div></div>
+<div id="thanks" class="paidbar" role="status" hidden><div class="w"><strong>Payment received.</strong> We'll email your setup checklist from pilot@therentalsdesk.com within one business day.</div></div>
 <section class="hero"><div class="w herogrid">
 <div>
 <p class="eyebrow">For property management teams</p>
-<h1>We chase your vendors. You get a 7 AM report of what needs you.</h1>
+<h1>We chase your vendors. By 7 AM your time, you get a report of what needs you.</h1>
 <p class="sub">We handle routine maintenance requests, coordinate your existing vendors, and follow up with tenants and owners. You get a clear report every business morning. Your team keeps control of emergencies, approvals, and payments.</p>
 <p class="priceline"><strong>$299 for your first 30 days</strong>, including up to 30 routine maintenance requests. After that, $999/month, only if you choose to continue. Cancel anytime. No annual contract.</p>
 <p class="volline">The $999/month plan includes unlimited routine maintenance requests, with no surprise charges.</p>
@@ -161,18 +161,18 @@ footer{padding:26px 0 90px;color:var(--mut);font-size:14.5px;border-top:1px soli
 <p class="ctasub">30-day trial: $299 · No payment required to inquire</p>
 </div>
 <div class="mini" aria-label="Sample 7 AM report, illustrative example">
-<div class="mh"><span>7 AM report · Tuesday</span><span class="tag">ILLUSTRATIVE</span></div>
+<div class="mh"><span>7 AM your time · Tuesday</span><span class="tag">ILLUSTRATIVE</span></div>
 <ul>
 <li><div><b>412 Alder St, Unit 3</b><span>Loose cabinet hinge</span></div><em class="st st-ok">Vendor confirmed</em></li>
 <li><div><b>1520 Mission Blvd, Unit 12</b><span>Bathroom fan noisy</span></div><em class="st st-wait">Awaiting owner approval</em></li>
 <li class="mneed"><div><b>88 Ridgeview Ct</b><span>Closet door off track · Two vendor quotes received: $340 and $415</span></div><em class="st st-need">Needs your decision</em></li>
 </ul>
-<a class="mlink" href="#report">See the full example report ↓</a>
+<a class="mlink" href="#report" data-cta="hero_report_link">See the full example report ↓</a>
 </div>
 </div></section>
 
 <section id="report" class="alt"><div class="w">
-<h2>Your 7 AM Morning Maintenance Brief</h2>
+<h2>Your Morning Maintenance Brief, by 7 AM Your Time</h2>
 <p class="note">This is the report you get every business day. <strong>Example only: these addresses and jobs are made up.</strong></p>
 <div class="report collapsed" id="rep"><div class="rh"><span>Morning Maintenance Brief · 7:00 AM</span><span class="tag">EXAMPLE</span></div>
 <table><thead><tr><th>Property</th><th>Issue</th><th>Status</th><th>What's next</th></tr></thead><tbody>
@@ -183,7 +183,7 @@ footer{padding:26px 0 90px;color:var(--mut);font-size:14.5px;border-top:1px soli
 </tbody></table><div class="sum"><strong>Summary:</strong> 4 open requests. 1 needs your decision. 0 emergencies forwarded to you.</div></div>
 <button type="button" class="more" id="more" aria-expanded="false" aria-controls="rep">Show full report (4 rows + summary) ▾</button>
 <div class="proof">
-<div class="pc"><b>Backed by a guarantee.</b>If we miss our response standard on 3 or more requests, or miss 2 or more morning reports, during your pilot, you get your $299 pilot fee back. <a href="#pilot-terms" data-open="terms">Pilot terms ↓</a></div>
+<div class="pc" id="guarantee-note"><b>Backed by a guarantee.</b>If we miss our response standard on 3 or more requests, or miss 2 or more morning reports, during your pilot, you get your $299 pilot fee back. <a href="#pilot-terms" data-open="terms">Pilot terms ↓</a></div>
 <div class="pc"><b>Who runs it.</b>Rentals Desk is a new service from Keery Property Holdings, LLC. AI agents do the coordination work, and the day's work gets human review every business day.</div>
 </div>
 </div></section>
@@ -207,7 +207,7 @@ footer{padding:26px 0 90px;color:var(--mut);font-size:14.5px;border-top:1px soli
 <div id="whats-included">
 <h2 style="font-size:24px">What's included</h2>
 <div class="scope">
-<div><h3>We handle</h3><p>Routine maintenance requests by email, booking and confirming your vendors, chasing owner approvals, written status updates to tenants, and the 7 AM report every business day (Mon–Fri, 8 AM–6 PM Pacific). We coordinate approvals; we don't make them.</p></div>
+<div><h3>We handle</h3><p>Routine maintenance requests by email, booking and confirming your vendors, chasing owner approvals, written status updates to tenants, and a report by 7 AM your time every business day (Mon–Fri, 8 AM–6 PM Pacific). We coordinate approvals; we don't make them.</p></div>
 <div><h3>You keep</h3><p>Your team retains control of emergencies, approval decisions, and payments. We pass emergencies straight to you, and legal notices stay with you. There's no phone line and no after-hours coverage, so keep your emergency line as it is.</p></div>
 <div><h3>Payment</h3><p>After you request, we email your $299 payment link. If during setup we find we can't support how your requests come in, we refund the full $299.</p></div>
 </div>
@@ -250,7 +250,7 @@ footer{padding:26px 0 90px;color:var(--mut);font-size:14.5px;border-top:1px soli
 <section><div class="w" style="max-width:760px">
 <!-- ===== PILOT TERMS: single editable block. Source (verbatim): lyc-ops/ops/desk-tests/b45-pm-backoffice/2026-10-21-B45-offer-299-pilot-terms-and-reply-templates-rank1.md section A ===== -->
 <details id="pilot-terms"><summary>$299 founding pilot: the terms</summary><div>
-<p><strong>What you get.</strong> For 30 days, Rentals Desk coordinates up to 30 routine maintenance requests for your properties, by email. You get a report at 7 AM Pacific every business day. The pilot costs $299, paid up front. There's no setup fee and no annual contract.</p>
+<p><strong>What you get.</strong> For 30 days, Rentals Desk coordinates up to 30 routine maintenance requests for your properties, by email. You get a report by 7 AM in your local time every business day. The pilot costs $299, paid up front. There's no setup fee and no annual contract.</p>
 <p>Your 30 days start on the first day we begin handling your requests, not on the day you pay.</p>
 <p><strong>What stays with you.</strong> Your team retains control of emergencies, approval decisions, and payments. We coordinate approvals, which means we ask owners and chase them for an answer, but we never make the decision ourselves. If an emergency reaches us, we pass it straight to you.</p>
 <p><strong>Our response standard.</strong> When a routine request reaches us, we let the tenant know we've got it within 1 business hour, and we contact a vendor the same business day (requests after 4 PM PT: by 10 AM PT the next business day). Business hours are Monday to Friday, 8 AM to 6 PM Pacific, not counting US federal holidays. If a request comes in outside business hours, the hour starts at 8 AM the next business day.</p>
@@ -259,7 +259,7 @@ footer{padding:26px 0 90px;color:var(--mut);font-size:14.5px;border-top:1px soli
 <p><strong>Our guarantee.</strong> You get your full $299 back if, during the pilot, either of these happens:</p>
 <ul>
 <li>We miss the response standard on 3 or more requests.</li>
-<li>We miss 2 or more 7 AM reports.</li>
+<li>We miss 2 or more morning reports (due by 7 AM your time).</li>
 </ul>
 <p>One late reply on its own doesn't count as a failure.</p>
 <p><strong>Setup refund:</strong> if during setup we find we can't support how your requests come in, we refund the full $299.</p>
@@ -306,7 +306,7 @@ em.addEventListener('input',function(){if(em.getAttribute('aria-invalid'))vEmail
 un.addEventListener('change',function(){vUnits(false);});
 f.addEventListener('submit',function(e){
  e.preventDefault();if(sending||leadSent)return;ferr.hidden=true;start();
- var a=vEmail(true),b=vUnits(true);if(!a){em.focus();return;}if(!b){un.querySelector('input').focus();return;}
+ var a=vEmail(true),b=vUnits(true);if(!a)ga('form_error',{form_id:'pilot',field:'email',error_type:em.value.trim()?'invalid':'empty',offer:OFFER});if(!b)ga('form_error',{form_id:'pilot',field:'units',error_type:'empty',offer:OFFER});if(!a){em.focus();return;}if(!b){un.querySelector('input').focus();return;}
  sending=true;btn.disabled=true;btn.textContent='Sending…';
  var data=new FormData(f),units=(f.querySelector('input[name=units]:checked')||{}).value||'';
  fetch(FORM_ENDPOINT,{method:'POST',body:data,headers:{'Accept':'application/json'}})
@@ -319,8 +319,22 @@ f.addEventListener('submit',function(e){
   ga('generate_lead',{form_id:'pilot',offer:OFFER,units:units,currency:'USD',value:299,utm_source:fv('utm_source'),utm_medium:fv('utm_medium'),utm_campaign:fv('utm_campaign'),utm_content:fv('utm_content')});
   f.hidden=true;ok.hidden=false;ok.focus();
  })
- .catch(function(){sending=false;btn.disabled=false;btn.textContent='See if Your Properties Qualify';ferr.hidden=false;});
+ .catch(function(){ga('form_error',{form_id:'pilot',field:'server',error_type:'submit_failed',offer:OFFER});sending=false;btn.disabled=false;btn.textContent='See if Your Properties Qualify';ferr.hidden=false;});
 });
+// ---- Behavior tracking (GA4 only; no Ads conversions here) ----
+// cta_click: every element with data-cta, with its location.
+document.querySelectorAll('[data-cta]').forEach(function(a){a.addEventListener('click',function(){ga('cta_click',{cta_location:a.getAttribute('data-cta'),link_target:a.getAttribute('href')||'',offer:OFFER});});});
+// terms_open: pilot terms opened (summary click, terms link, or #pilot-terms hash).
+var pt=document.getElementById('pilot-terms');
+if(pt){pt.addEventListener('toggle',function(){if(pt.open)ga('terms_open',{offer:OFFER});});}
+// section_view: once per section per page load, when 30% of it (or half the screen) is visible.
+var secs=[['report','report'],['guarantee-note','guarantee'],['offer','offer'],['form','form'],['pilot-terms','terms']],seen={};
+if('IntersectionObserver' in window){var so=new IntersectionObserver(function(es){es.forEach(function(e){var n=e.target.getAttribute('data-sv');if(seen[n]||!e.isIntersecting)return;if(e.intersectionRatio>=0.3||e.intersectionRect.height>=window.innerHeight*0.5){seen[n]=true;ga('section_view',{section:n,offer:OFFER});so.unobserve(e.target);}});},{threshold:[0,0.1,0.2,0.3,0.5]});
+secs.forEach(function(x){var el=document.getElementById(x[0]);if(el){el.setAttribute('data-sv',x[1]);so.observe(el);}});}
+// scroll depth 25/50/75 (GA4 enhanced measurement already sends 90).
+var sd={25:false,50:false,75:false};
+function onScroll(){var h=document.documentElement,max=h.scrollHeight-window.innerHeight;if(max<=0)return;var pct=(window.scrollY||h.scrollTop)/max*100;[25,50,75].forEach(function(t){if(!sd[t]&&pct>=t){sd[t]=true;ga('scroll',{percent_scrolled:t,offer:OFFER});}});if(sd[75])window.removeEventListener('scroll',onScroll);}
+window.addEventListener('scroll',onScroll,{passive:true});
 })();
 </script>
 <script>
