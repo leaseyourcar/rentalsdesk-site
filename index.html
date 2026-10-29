@@ -21,6 +21,14 @@ gtag('js',new Date());gtag('config',ADS_ID);
 if(GA4_MEASUREMENT_ID){gtag('config',GA4_MEASUREMENT_ID);}
 </script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CCXYRK3GHJ"></script>
+<!-- Microsoft Clarity (project z5epfd2g67, masking: Balanced). Form is also explicitly masked via data-clarity-mask. -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "z5epfd2g67");
+</script>
 <style>
 :root{--b:#1d4ed8;--bd:#1e3a8a;--ink:#0f172a;--mut:#475569;--line:#e2e8f0;--bg:#f8fafc;--warm:#fff7ed;--warmb:#fdba74;--ok:#15803d;--err:#b91c1c}
 *{box-sizing:border-box}html{scroll-behavior:smooth}
@@ -106,6 +114,7 @@ footer{padding:26px 0 90px;color:var(--mut);font-size:14.5px;border-top:1px soli
 .ctasub{font-size:14px;color:var(--mut);margin:8px 0 0}
 .card .ctasub{text-align:center}
 .volline{font-size:14px;color:var(--mut);margin:-10px 0 18px}
+.hform{margin-top:20px}
 .mini{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 8px 30px rgba(15,23,42,.08);overflow:hidden;margin-top:20px}
 .mh{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:11px 14px;background:var(--bd);color:#fff;font-weight:700;font-size:14.5px}
 .mini ul{list-style:none;margin:0;padding:0}
@@ -126,8 +135,6 @@ footer{padding:26px 0 90px;color:var(--mut);font-size:14.5px;border-top:1px soli
  .more{display:flex;width:100%;justify-content:center;min-height:48px;margin-top:10px;background:#fff;border:1.5px solid #64748b;border-radius:10px;font:inherit;font-weight:700;color:var(--ink);cursor:pointer;align-items:center}
 }
 @media(max-width:719px){
- main{display:flex;flex-direction:column}
- main>.hero{order:1}main>#form{order:2}main>#report{order:3}main>#offer{order:4}main>section:last-child{order:5}
  #report>.w{display:flex;flex-direction:column}#report>.w>*{order:2}#report .proof{order:1;margin:0 0 22px}
 }
 @media(min-width:720px){
@@ -140,7 +147,7 @@ footer{padding:26px 0 90px;color:var(--mut);font-size:14.5px;border-top:1px soli
  .card{padding:28px}
 }
 @media(min-width:980px){
- .herogrid{display:grid;grid-template-columns:1.2fr .8fr;gap:44px;align-items:start}.herogrid .mini{margin-top:6px}
+ .herogrid{display:grid;grid-template-columns:1.2fr .8fr;gap:44px;align-items:start}.herogrid .hform{margin-top:6px}
  .offergrid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
  .scope{grid-template-columns:1fr;margin-top:0}
  .fwrap{grid-template-columns:1fr 440px;align-items:start}
@@ -156,18 +163,38 @@ footer{padding:26px 0 90px;color:var(--mut);font-size:14.5px;border-top:1px soli
 <h1>We chase your vendors. By 7 AM your time, you get a report of what needs you.</h1>
 <p class="sub">We handle routine maintenance requests, coordinate your existing vendors, and follow up with tenants and owners. You get a clear report every business morning. Your team keeps control of emergencies, approvals, and payments.</p>
 <p class="priceline"><strong>$299 for your first 30 days</strong>, including up to 30 routine maintenance requests. After that, $999/month, only if you choose to continue. Cancel anytime. No annual contract.</p>
-<p class="volline">The $999/month plan includes unlimited routine maintenance requests, with no surprise charges.</p>
-<div class="ctarow"><a class="btn" href="#form" data-cta="hero">See if Your Properties Qualify</a></div>
-<p class="ctasub">30-day trial: $299 · No payment required to inquire</p>
 </div>
-<div class="mini" aria-label="Sample 7 AM report, illustrative example">
-<div class="mh"><span>7 AM your time · Tuesday</span><span class="tag">ILLUSTRATIVE</span></div>
-<ul>
-<li><div><b>412 Alder St, Unit 3</b><span>Loose cabinet hinge</span></div><em class="st st-ok">Vendor confirmed</em></li>
-<li><div><b>1520 Mission Blvd, Unit 12</b><span>Bathroom fan noisy</span></div><em class="st st-wait">Awaiting owner approval</em></li>
-<li class="mneed"><div><b>88 Ridgeview Ct</b><span>Closet door off track · Two vendor quotes received: $340 and $415</span></div><em class="st st-need">Needs your decision</em></li>
-</ul>
-<a class="mlink" href="#report" data-cta="hero_report_link">See the full example report ↓</a>
+<div id="form" class="hform">
+<div class="card" id="fcard">
+<form id="f" novalidate data-clarity-mask="True">
+<h2>See if Rentals Desk can help your team</h2>
+<p class="fine" style="margin:0 0 4px;font-size:15.5px">No sales call required. Tell us a little about your properties and we'll reply by email.</p>
+<label for="email">Email address</label>
+<input id="email" name="email" type="email" autocomplete="email" autocapitalize="off" spellcheck="false" inputmode="email" required aria-describedby="email-err">
+<p class="err" id="email-err" aria-live="polite"></p>
+<fieldset class="units" id="units"><legend>How many rental units do you manage?</legend>
+<label><input type="radio" name="units" value="Under 50" required> Under 50</label>
+<label><input type="radio" name="units" value="50–100"> 50–100</label>
+<label><input type="radio" name="units" value="101–200"> 101–200</label>
+<label><input type="radio" name="units" value="Over 200"> Over 200</label>
+</fieldset>
+<p class="err" id="units-err" aria-live="polite"></p>
+<input type="hidden" name="offer" value="founding-299">
+<input type="hidden" name="utm_source" id="utm_source"><input type="hidden" name="utm_medium" id="utm_medium">
+<input type="hidden" name="utm_campaign" id="utm_campaign"><input type="hidden" name="utm_content" id="utm_content">
+<input type="hidden" name="gclid" id="gclid"><input type="hidden" name="page" id="page">
+<input type="hidden" name="_subject" value="Rentals Desk lead: $299 founding pilot request">
+<div class="hp" aria-hidden="true"><label for="_gotcha">Leave blank</label><input id="_gotcha" name="_gotcha" tabindex="-1" autocomplete="off"></div>
+<button class="btn" type="submit" id="sbtn">See if Your Properties Qualify</button>
+<p class="ctasub">We'll email you the next step. No payment or phone call required.</p>
+<p class="fine">After you request, we email your $299 payment link. If during setup we find we can't support how your requests come in, we refund the full $299. We only use your email to reply about Rentals Desk.</p>
+<div class="formerr" id="ferr" role="alert" hidden>Something went wrong and your request wasn't sent. Please try again, or email <a href="mailto:pilot@therentalsdesk.com">pilot@therentalsdesk.com</a>.</div>
+</form>
+<div class="ok" id="ok" hidden tabindex="-1">
+<h2>Got it. Your request is in.</h2>
+<p>We'll email your $299 payment link from pilot@therentalsdesk.com within one business day (Mon–Fri, 8 AM–6 PM PT). If during setup we find we can't support how your requests come in, we refund the full $299.</p>
+</div>
+</div>
 </div>
 </div></section>
 
@@ -210,39 +237,6 @@ footer{padding:26px 0 90px;color:var(--mut);font-size:14.5px;border-top:1px soli
 <div><h3>We handle</h3><p>Routine maintenance requests by email, booking and confirming your vendors, chasing owner approvals, written status updates to tenants, and a report by 7 AM your time every business day (Mon–Fri, 8 AM–6 PM Pacific). We coordinate approvals; we don't make them.</p></div>
 <div><h3>You keep</h3><p>Your team retains control of emergencies, approval decisions, and payments. We pass emergencies straight to you, and legal notices stay with you. There's no phone line and no after-hours coverage, so keep your emergency line as it is.</p></div>
 <div><h3>Payment</h3><p>After you request, we email your $299 payment link. If during setup we find we can't support how your requests come in, we refund the full $299.</p></div>
-</div>
-</div>
-</div></section>
-
-<section id="form" class="alt"><div class="w" style="max-width:640px">
-<div class="card" id="fcard">
-<form id="f" novalidate>
-<h2>See if Rentals Desk can help your team</h2>
-<p class="fine" style="margin:0 0 4px;font-size:15.5px">No sales call required. Tell us a little about your properties and we'll reply by email.</p>
-<label for="email">Email address</label>
-<input id="email" name="email" type="email" autocomplete="email" autocapitalize="off" spellcheck="false" inputmode="email" required aria-describedby="email-err">
-<p class="err" id="email-err" aria-live="polite"></p>
-<fieldset class="units" id="units"><legend>How many rental units do you manage?</legend>
-<label><input type="radio" name="units" value="Under 50" required> Under 50</label>
-<label><input type="radio" name="units" value="50–100"> 50–100</label>
-<label><input type="radio" name="units" value="101–200"> 101–200</label>
-<label><input type="radio" name="units" value="Over 200"> Over 200</label>
-</fieldset>
-<p class="err" id="units-err" aria-live="polite"></p>
-<input type="hidden" name="offer" value="founding-299">
-<input type="hidden" name="utm_source" id="utm_source"><input type="hidden" name="utm_medium" id="utm_medium">
-<input type="hidden" name="utm_campaign" id="utm_campaign"><input type="hidden" name="utm_content" id="utm_content">
-<input type="hidden" name="gclid" id="gclid"><input type="hidden" name="page" id="page">
-<input type="hidden" name="_subject" value="Rentals Desk lead: $299 founding pilot request">
-<div class="hp" aria-hidden="true"><label for="_gotcha">Leave blank</label><input id="_gotcha" name="_gotcha" tabindex="-1" autocomplete="off"></div>
-<button class="btn" type="submit" id="sbtn">See if Your Properties Qualify</button>
-<p class="ctasub">We'll email you the next step. No payment or phone call required.</p>
-<p class="fine">After you request, we email your $299 payment link. If during setup we find we can't support how your requests come in, we refund the full $299. We only use your email to reply about Rentals Desk.</p>
-<div class="formerr" id="ferr" role="alert" hidden>Something went wrong and your request wasn't sent. Please try again, or email <a href="mailto:pilot@therentalsdesk.com">pilot@therentalsdesk.com</a>.</div>
-</form>
-<div class="ok" id="ok" hidden tabindex="-1">
-<h2>Got it. Your request is in.</h2>
-<p>We'll email your $299 payment link from pilot@therentalsdesk.com within one business day (Mon–Fri, 8 AM–6 PM PT). If during setup we find we can't support how your requests come in, we refund the full $299.</p>
 </div>
 </div>
 </div></section>
