@@ -467,15 +467,20 @@ f.addEventListener('submit',function(e){
 });
 // ---- Behavior tracking (GA4 only; no Ads conversions here) ----
 // cta_click: every element with data-cta, with its location. Pilot (Stripe) buttons also send begin_checkout,
-// sent by beacon; navigation waits for the hit (max 500 ms) so the click is recorded before Stripe loads.
+// sent by beacon; navigation waits 900 ms so both hits leave before Stripe loads.
 document.querySelectorAll('[data-cta]').forEach(function(a){a.addEventListener('click',function(ev){
  var loc=a.getAttribute('data-cta'),href=a.getAttribute('href')||'',pay=a.hasAttribute('data-pay');
- if(!pay){ga('cta_click',{cta_location:loc,link_target:href,offer:OFFER});return;}
- ga('cta_click',{cta_location:loc,link_target:href,offer:OFFER,transport_type:'beacon'});
- if(!GA4_MEASUREMENT_ID||ev.ctrlKey||ev.metaKey||ev.shiftKey||ev.button===1){ga('begin_checkout',{cta_location:loc,link_target:href,offer:OFFER,currency:'USD',value:299,transport_type:'beacon'});return;}
+ var se=a.closest('[data-sv]'),sec=se?se.getAttribute('data-sv'):'none';
+ var p={cta_location:loc,link_target:href,offer:OFFER,section:sec};
+ if(!pay){ga('cta_click',p);return;}
+ var bp={cta_location:loc,link_target:href,offer:OFFER,section:sec,currency:'USD',value:299};
+ if(!GA4_MEASUREMENT_ID||ev.ctrlKey||ev.metaKey||ev.shiftKey||ev.button===1){p.transport_type='beacon';bp.transport_type='beacon';ga('cta_click',p);ga('begin_checkout',bp);return;}
  ev.preventDefault();var gone=false;function go(){if(gone)return;gone=true;location.href=href;}
- ga('begin_checkout',{cta_location:loc,link_target:href,offer:OFFER,currency:'USD',value:299,transport_type:'beacon',event_callback:go});
- setTimeout(go,500);
+ p.transport_type='beacon';bp.transport_type='beacon';
+ ga('cta_click',p);ga('begin_checkout',bp);
+ // GA4 batches hits, so its callback can fire before the hit leaves the browser. Wait a fixed 900 ms
+ // (the hit is flushed within that window; it is also sent by beacon on page hide), then go to Stripe.
+ setTimeout(go,900);
 });});
 // sticky bar (phone): shows after the hero button scrolls off; hides while #start or #offer is on screen, or while typing.
 var st=document.getElementById('sticky'),stA=st.querySelector('a'),hb=document.getElementById('herobtn'),heroOff=false,vis={},typing=false;
