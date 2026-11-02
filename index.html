@@ -467,7 +467,8 @@ f.addEventListener('submit',function(e){
 });
 // ---- Behavior tracking (GA4 only; no Ads conversions here) ----
 // cta_click: every element with data-cta, with its location. Pilot (Stripe) buttons also send begin_checkout,
-// sent by beacon; navigation waits 900 ms so both hits leave before Stripe loads.
+// sent by beacon. Navigation to Stripe runs from gtag's event_callback, with a 1000 ms fallback so the visitor
+// always moves on; a guard makes sure the redirect runs only once.
 document.querySelectorAll('[data-cta]').forEach(function(a){a.addEventListener('click',function(ev){
  var loc=a.getAttribute('data-cta'),href=a.getAttribute('href')||'',pay=a.hasAttribute('data-pay');
  var se=a.closest('[data-sv]'),sec=se?se.getAttribute('data-sv'):'none';
@@ -475,12 +476,15 @@ document.querySelectorAll('[data-cta]').forEach(function(a){a.addEventListener('
  if(!pay){ga('cta_click',p);return;}
  var bp={cta_location:loc,link_target:href,offer:OFFER,section:sec,currency:'USD',value:299};
  if(!GA4_MEASUREMENT_ID||ev.ctrlKey||ev.metaKey||ev.shiftKey||ev.button===1){p.transport_type='beacon';bp.transport_type='beacon';ga('cta_click',p);ga('begin_checkout',bp);return;}
- ev.preventDefault();var gone=false;function go(){if(gone)return;gone=true;location.href=href;}
+ ev.preventDefault();var gone=false,flushed=false;function go(){if(gone)return;gone=true;location.href=href;}
  p.transport_type='beacon';bp.transport_type='beacon';
+ // GA4 batches hits and its event_callback fires once the hit is queued, not sent (QA check 9, 11/2). So when both
+ // callbacks have run, nudge gtag's own page-hide flush so the queued batch leaves by keepalive while the lander is
+ // still open, then go to Stripe. If gtag never calls back (blocked), the 1000 ms fallback still sends the visitor on.
+ var left=2;function cb(){if(--left>0||gone||flushed)return;flushed=true;try{window.dispatchEvent(new Event('pagehide'));}catch(e){}setTimeout(go,50);}
+ p.event_callback=cb;bp.event_callback=cb;p.event_timeout=1000;bp.event_timeout=1000;
+ setTimeout(go,1000);
  ga('cta_click',p);ga('begin_checkout',bp);
- // GA4 batches hits, so its callback can fire before the hit leaves the browser. Wait a fixed 900 ms
- // (the hit is flushed within that window; it is also sent by beacon on page hide), then go to Stripe.
- setTimeout(go,900);
 });});
 // sticky bar (phone): shows after the hero button scrolls off; hides while #start or #offer is on screen, or while typing.
 var st=document.getElementById('sticky'),stA=st.querySelector('a'),hb=document.getElementById('herobtn'),heroOff=false,vis={},typing=false;
